@@ -1,10 +1,12 @@
 = juicer-rails
 
-juicer-rails is a Rails plugin for juicer, a tool for minifying CSS and JavaScript assets (http://github.com/cjohansen/juicer).
+juicer-rails is a Rails plugin for juicer, a tool for minifying CSS and
+JavaScript assets (http://github.com/cjohansen/juicer).
 
 Official url: http://github.com/ktheory/juicer-rails
 
-In development mode, juicer-rails will serve expanded assets for easier debugging. In production mode, juicer-rails serves one minified file.
+In development mode, juicer-rails will serve expanded assets for easier
+debugging. In production mode, juicer-rails serves one minified file.
 
 == Install
 
@@ -12,7 +14,8 @@ In your rails project:
 
   script/plugin install git://github.com/ktheory/juicer-rails.git
 
-juicer-rails requires the latest, unreleased version of juicer. (This should change soon.) For now, build your own juicer gem:
+juicer-rails requires the latest, unreleased version of juicer. (This should
+change soon.) For now, build your own juicer gem:
 
   git clone git://github.com/cjohansen/juicer.git
   cd juicer
@@ -21,7 +24,8 @@ juicer-rails requires the latest, unreleased version of juicer. (This should cha
 
 == Usage
 
-In your views, use the `juiced_tag` in place of `javascript_include_tag` and `stylesheet_link_tag`.
+In your views, use the `juiced_tag` in place of `javascript_include_tag` and
+`stylesheet_link_tag`.
 
 For example,
 
@@ -31,14 +35,17 @@ becomes
 
   juiced_tag "/javascripts/app.js"
 
-In development, this will use juicer to resolve the dependencies of `javascript/app.js`, and write a script tag for each one. E.g., say app.js depends on some_package.js.
+In development, this will use juicer to resolve the dependencies of
+`javascript/app.js`, and write a script tag for each one. E.g., say app.js
+depends on some_package.js.
 
   juiced_tag "/javascripts/app.js" # in development =>
   <script src="/javascripts/some_package.js" type="text/javascript"></script>
   <script src="/javascripts/app.js" type="text/javascript"></script>
 
 
-In production, this will return a single script tag for the asset. The name of the asset is determined by putting `min` before the file extension.
+In production, this will return a single script tag for the asset. The name of
+the asset is determined by putting `min` before the file extension.
 
   juiced_tag "/javascripts/app.js" # in production =>
   <script src="/javascripts/app.min.js" type="text/javascript"></script>
@@ -54,9 +61,10 @@ Stylesheets work similarly. Say `app.css` depends on `reset.css`.
   juiced_tag "/stylesheets/app.css" # in production =>
   <link href="/stylesheets/app.min.css" media="screen" rel="stylesheet" type="text/css" />
 
-Juicer can also embed images in your stylesheets. Of course, this doesn't work in IE. Embedding is disabled by default, but you can turn it on in the rails initializer:
+Juicer can also embed images in your stylesheets. Of course, this doesn't work
+in IE. Embedding is disabled by default, but you can turn it on in the rails initializer:
 
-  Juicer::ActionViewHelper.use_embedded_images = true
+  Juicer::ActionViewHelper.embed_images = true
 
 Now we have:
 
@@ -78,7 +86,8 @@ Now we have:
 * Add tests for it. This is important so I don't break it in a
   future version unintentionally.
 * Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+  (if you want to have your own version, that is fine but bump version in a
+  commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
 == Copyright

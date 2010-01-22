@@ -1,3 +1,5 @@
+# Require a bleeding edge version of juicer
+gem "juicer", "> 0.9"
 require 'juicer'
 require 'juicer/package'
 require 'action_view'

@@ -5,7 +5,7 @@ require 'action_view'
 class Juicer::Package
 
   cattr_accessor :default_options
-  @@default_options = {:web_root => "public"}
+  @@default_options = {:document_root => "public"}
 
   attr_accessor :path, :extension
 
@@ -35,8 +35,8 @@ class Juicer::Package
     self.class.default_options
   end
 
-  def path_with_web_root
-    File.join(@options[:web_root], path)
+  def path_with_document_root
+    File.join(@options[:document_root], path)
   end
 
   def resolver
@@ -50,14 +50,14 @@ class Juicer::Package
 
   #  Returns an array of absolute paths upon which @path depends
   def absolute_dependencies
-    resolver.resolve(path_with_web_root)
+    resolver.resolve(path_with_document_root)
   end
 
   # Returns an array of paths relative to web root
   def dependencies
-    web_root = Pathname.new(File.join(Dir.pwd, @options[:web_root]))
+    document_root = Pathname.new(File.join(Dir.pwd, @options[:document_root]))
     absolute_dependencies.map do |full_path|
-      relative_path = Pathname.new(full_path).relative_path_from(web_root).to_s
+      relative_path = Pathname.new(full_path).relative_path_from(document_root).to_s
       File.join("/", relative_path)
     end
   end

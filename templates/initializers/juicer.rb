@@ -8,4 +8,4 @@
 # Juicer::ActionViewHelper.embed_images = false
 
 # Default options for the packager
-# Juicer::Package.default_options = {:web_root => "public"}
+# Juicer::Package.default_options = {:document_root => "public"}

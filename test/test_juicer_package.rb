@@ -7,18 +7,18 @@ class TestJuicerPackage < Test::Unit::TestCase
       FakeFS.activate!
       FakeFS::FileSystem.clear
 
-      @web_root = "public"
-      Juicer::Package.default_options = {:web_root => @web_root}
+      @document_root = "public"
+      Juicer::Package.default_options = {:document_root => @document_root}
 
-      @public_path = File.join(RealDir.pwd, @web_root)
+      @public_path = File.join(RealDir.pwd, @document_root)
       FileUtils.mkdir_p(@public_path)
 
       # js/app.js depends on pkg
-      fake_write("#{@web_root}/js/app.js", "// @depend pkg\nvar myApp = "";")
+      fake_write("#{@document_root}/js/app.js", "// @depend pkg\nvar myApp = "";")
       # js/pkg/a.js
-      fake_write("#{@web_root}/js/pkg/a.js", "var a = "";")
+      fake_write("#{@document_root}/js/pkg/a.js", "var a = "";")
       # js/pkg/pkg.js depends on a.js
-      fake_write("#{@web_root}/js/pkg/pkg.js", "// @depend a.js\nvar pkg = "";")
+      fake_write("#{@document_root}/js/pkg/pkg.js", "// @depend a.js\nvar pkg = "";")
       @expected_dependencies = %w(/js/pkg/a.js /js/pkg/pkg.js /js/app.js)
 
       @path = "/js/app.js"
@@ -30,8 +30,8 @@ class TestJuicerPackage < Test::Unit::TestCase
     end
 
     should "have paths relative to web root" do
-      path_with_web_root = File.join(@web_root, @path)
-      assert_equal path_with_web_root, @package.path_with_web_root
+      path_with_document_root = File.join(@document_root, @path)
+      assert_equal path_with_document_root, @package.path_with_document_root
     end
 
     should "have absolute dependencies" do

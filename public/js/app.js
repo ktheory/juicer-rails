@@ -1,2 +1,0 @@
-// @depend pkg
-var myApp = ;

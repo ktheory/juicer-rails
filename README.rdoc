@@ -24,8 +24,8 @@ change soon.) For now, build your own juicer gem:
 
 == Usage
 
-In your views, use the `juiced_tag` in place of `javascript_include_tag` and
-`stylesheet_link_tag`.
+In your views, use the <code>juiced_tag</code> in place of <code>javascript_include_tag</code> and
+<code>stylesheet_link_tag</code>.
 
 For example,
 
@@ -36,7 +36,7 @@ becomes
   juiced_tag "/javascripts/app.js"
 
 In development, this will use juicer to resolve the dependencies of
-`javascript/app.js`, and write a script tag for each one. E.g., say app.js
+<code>javascript/app.js</code>, and write a script tag for each one. E.g., say app.js
 depends on some_package.js.
 
   juiced_tag "/javascripts/app.js" # in development =>
@@ -45,14 +45,14 @@ depends on some_package.js.
 
 
 In production, this will return a single script tag for the asset. The name of
-the asset is determined by putting `min` before the file extension.
+the asset is determined by putting <code>min</code> before the file extension.
 
   juiced_tag "/javascripts/app.js" # in production =>
   <script src="/javascripts/app.min.js" type="text/javascript"></script>
 
 If you have asset hosts configured, it will honor those.
 
-Stylesheets work similarly. Say `app.css` depends on `reset.css`.
+Stylesheets work similarly. Say <code>app.css</code> depends on <code>reset.css</code>.
 
   juiced_tag "/stylesheets/app.css" # in development =>
   <link href="/stylesheets/reset.css" media="screen" rel="stylesheet" type="text/css" />

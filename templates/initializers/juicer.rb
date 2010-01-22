@@ -1,4 +1,4 @@
-# Configure the Juicer::Packager plugin
+# Configure the juicer-rails plugin
 # Defaults are commented out.
 
 # Which environments should use expanded assets

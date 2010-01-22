@@ -1,0 +1,7 @@
+TODO:
+* Documentation
+* Dev performance: Cache dependencies, check files' mtimes to determine changes
+* Automatically create minified assets if they don't exist
+  * Support more configuration options?
+* Test ActionViewHelper
+* Juicer::Package should live in juicer?

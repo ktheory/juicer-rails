@@ -8,6 +8,13 @@ Official url: http://github.com/ktheory/juicer-rails
 In development mode, juicer-rails will serve expanded assets for easier
 debugging. In production mode, juicer-rails serves one minified file.
 
+== Thanks
+
+Special thanks to:
+
+* Christian Johansen (et al) for making juicer.
+* Jeremy Ashkenas for suggesting more efficient conditional CSS
+
 == Install
 
 In your rails project:

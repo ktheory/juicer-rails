@@ -45,10 +45,7 @@ module Juicer::ActionViewHelper
     normal_tag = stylesheet_link_tag(normal_path)
 
     %{
-      <!--[if !IE]>-->
-      #{embedded_tag}
-      <!--<![endif]-->
-      <!--[if gte IE 8]>
+      <!--[if (!IE)|(gte IE 8)]>
       #{embedded_tag}
       <![endif]-->
       <!--[if lte IE 7]>

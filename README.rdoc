@@ -76,14 +76,11 @@ in IE. Embedding is disabled by default, but you can turn it on in the rails ini
 Now we have:
 
   juiced_tag "/stylesheets/app.css" # in production, with embedding =>
-  <!--[if !IE]>-->
-      <link rel="stylesheet" type="text/css" href="/stylesheets/app.embedded.css" />
+  <!--[if (!IE)|(gte IE 8)]><!-->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/app.embedded.css" />
   <!--<![endif]-->
-  <!--[if gte IE 8]>
-      <link rel="stylesheet" type="text/css" href="/stylesheets/app.embedded.css" />
-  <![endif]-->
   <!--[if lte IE 7]>
-      <link rel="stylesheet" type="text/css" href="/stylesheets/app.min.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/app.min.css" />
   <![endif]-->
 
 == Note on Patches/Pull Requests

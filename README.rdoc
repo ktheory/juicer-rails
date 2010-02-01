@@ -26,7 +26,7 @@ change soon.) For now, build your own juicer gem:
 
   git clone git://github.com/cjohansen/juicer.git
   cd juicer
-  gem build
+  rake build
   sudo gem install pkg/juicer-0.9.9.gem
 
 == Usage
